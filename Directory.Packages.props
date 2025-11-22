@@ -1,0 +1,6 @@
+<Project>
+    <ItemGroup>
+        <PackageVersion Include="Akka" Version="1.5.55" />
+        <PackageVersion Include="Akka.Remote" Version="1.5.55" />
+    </ItemGroup>
+</Project>
