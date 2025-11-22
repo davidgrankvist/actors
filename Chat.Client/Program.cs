@@ -9,15 +9,6 @@ using var actorSystem = ActorSystem.Create("ChatClientSystem", tcpConfig.GetConf
 var server = await tcpConfig.CreateServerRefAsync(actorSystem);
 var client = actorSystem.ActorOf(Props.Create(() => new ChatClient(server)), "client");
 
-while (true)
-{
-    var input = Console.ReadLine();
-    if (input == null || input == "exit")
-    {
-        break;
-    }
+InputReader.RunInputLoop(client);
 
-    client.Tell(new ChatInput(input));
-}
-
-actorSystem.Terminate().Wait();
+await actorSystem.Terminate();

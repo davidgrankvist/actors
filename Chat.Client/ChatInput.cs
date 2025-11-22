@@ -1,3 +1,11 @@
 namespace Chat.Client;
 
-public record ChatInput(string Text);
+public enum ChatCommandType
+{
+    CreateRoom,
+    JoinRoom,
+    LeaveRoom,
+    SendMessage,
+}
+
+public record ChatInput(ChatCommandType Command, string Room, string? Message = null);
